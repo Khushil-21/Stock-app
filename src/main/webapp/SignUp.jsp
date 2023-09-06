@@ -66,6 +66,7 @@
 				<div>
 					Password :- <input type="password" name="password" placeholder="Enter Your Password">
 				</div>
+				${error}
 				<div class="submit"><input type="submit" value="Register"></div>
 
 			</form>

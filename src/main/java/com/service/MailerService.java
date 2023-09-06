@@ -40,10 +40,10 @@ public class MailerService {
 		Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 
 			protected PasswordAuthentication getPasswordAuthentication() {
-					//gmail -> password  -> mail special password-> 
-				//app specific password 
+				// gmail -> password -> mail special password->
+				// app specific password
 				return new PasswordAuthentication(from, "tttfwmeiqzkdnfdu");
- 			}
+			}
 
 		});
 
@@ -71,6 +71,7 @@ public class MailerService {
 			System.out.println("Sent message successfully....");
 		} catch (MessagingException m) {
 
+			System.out.println("Unsuccessfully....");
 			m.printStackTrace();
 		}
 

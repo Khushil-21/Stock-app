@@ -27,12 +27,19 @@ public class SaveUserServlet extends HttpServlet {
 		NewUser.setRole("USER");
 		
 		UserDao userDao = new UserDao(); 
-		userDao.addUser(NewUser);
+		String status = userDao.addUser(NewUser);
 		
-		MailerService mailerService = new MailerService();
-		mailerService.sendWelcomeMail(NewUser);
+//		MailerService mailerService = new MailerService();
+//		mailerService.sendWelcomeMail(NewUser);
 		
-		response.sendRedirect("Login.jsp");
+		if(status=="ok") {
+			response.sendRedirect("Login.jsp");
+		}
+		else {
+			request.setAttribute("error", "Email Already Exists");
+			request.getRequestDispatcher("SignUp.jsp").forward(request, response);
+		}
+		
 		
 		
 	}
